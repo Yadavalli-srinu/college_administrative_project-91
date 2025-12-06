@@ -1,0 +1,46 @@
+
+        body {
+            background-image: url("https://varthana.com/school/wp-content/uploads/2024/04/B869-School.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.6);
+            z-index: -1;
+        }
+
+        .form-container {
+            width: 450px;
+            margin: 30px auto;
+            background-image: linear-gradient(gray,white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 22px;
+            text-align: center;
+            color: white;
+            margin-top: 55px;
+            font-weight: 700;
+        }
+        .form-container input{
+            height: 40px;
+            width: 100%;
+            border-radius: 10px;
+
+            
+        }
+    

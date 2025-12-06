@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Table</title>
+    <link rel="stylesheet" href="{% static  'CSS/tables.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+   
+</head>
+
+<body>
+    
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 py-3 shadow-sm">
+        <a class="navbar-brand fw-bold text-white" href="#">
+            <img src="https://varthana.com/school/wp-content/uploads/2024/04/B869-School.jpg" height="30" class="me-2"> Tech College
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item mx-2"><a class="nav-link" href="{% url 'home101' %}">HOME</a></li>
+                <li class="nav-item mx-2"><a class="nav-link" href="{% url 'dept_table101' %}">DEPARTMENTS</a></li>
+                <li class="nav-item mx-2"><a class="nav-link" href="{% url 'hod_table101' %}">HODs</a></li>
+                <li class="nav-item mx-2"><a class="nav-link" href="{% url 'professor_table101' %}">PROFESSORS</a></li>
+                <li class="nav-item mx-2"><a class="nav-link" href="{% url 'student_table101' %}">STUDENTS</a></li>
+            </ul>
+        </div>
+    </nav>      
+
+<div class="container py-4">
+
+    <h3 class="fw-bold text-center mb-4 text-white">Department Table</h3>
+
+    <div class="dept-box">
+          <form method="GET" class="input-group mb-3">
+            <input type="text" name="search" value="{{ request.GET.search }}" 
+                   placeholder="Search Department" 
+                   class="form-control form-control-sm">
+            <button class="btn btn-primary btn-sm">Search</button>
+        </form>
+
+        
+        <div class="d-flex justify-content-start mb-2">
+            <a href="{% url 'dept_form101' %}" class="btn btn-success btn-sm">Add</a>
+        </div>
+
+        
+        <div class="table-responsive custom-table">
+            <table class="table table-dark table-sm table-bordered text-center mb-0">
+
+                <thead class="table-secondary text-dark">
+                    <tr>
+                        <th>Dept</th>
+                        <th>Code</th>
+                        <th>Edit</th>
+                        <th>Del</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td class="py-1">{{ i.Department }}</td>
+                        <td class="py-1">{{ i.Code }}</td>
+
+                        <td class="py-1">
+                            <a href="{% url 'dept_form102' i.id %}" class="btn btn-warning btn-sm py-0 px-2">Edit</a>
+                        </td>
+
+                        <td class="py-1">
+                            <a href="{% url 'dept_delete101' i.id %}" class="btn btn-danger btn-sm py-0 px-2">Del</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Department Table</h1>
+    <table border="2">
+     <tr>
+        <th>Department</th>
+        <th>Code</th>
+        <th>Edit</th>
+        <th>Delete</th>
+     </tr>
+     {% for i in data %}
+     <tr>
+        <td>{{i.Department}}</td>
+        <td>{{i.Code}}</td>
+        <td><a href="{% url 'dept_form102' i.id%}">Edit</a></td>
+        <td><a href="{% url 'dept_delete101' i.id%}">Delete</a></td>
+     </tr>
+     {% endfor %}
+    </table>
+    <a href="{% url 'dept_form101' %}">Open_form</a>
+</body>
+</html> -->

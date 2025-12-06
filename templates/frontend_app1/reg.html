@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'CSS/auth.css' %}">
+</head>
+
+<body>
+    
+    <form method="post">
+        {% csrf_token %}
+        <h1>Register</h1>
+     <table>
+        <tr>
+            <td>
+                <input type="text" placeholder="Enter Username" name="reg_username">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="email" placeholder="Enter Email" name="reg_useremail">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="password" placeholder="Enter Password" name="reg_userpassword">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="password" placeholder="Enter con_password" name="reg_userconpassword">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+     </table>
+    </form>
+    <p>{{message}}</p>
+</body>
+</html>
