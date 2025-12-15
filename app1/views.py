@@ -77,7 +77,7 @@ def department_empty_form(request):
      content={
          "form":form
      }
-     return render(request,'frontend_app1/department_form.html',content)
+    return render(request,'frontend_app1/department_form.html',content)
 def department_update_form(request,id):
     data=department_model.objects.get(id=id)
     if request.method=="POST":
@@ -90,7 +90,7 @@ def department_update_form(request,id):
      content={
          "form":form
      }
-     return render(request,'frontend_app1/department_n_form.html',content)
+    return render(request,'frontend_app1/department_n_form.html',content)
     
 def department_delete(request,id):
    data=department_model.objects.get(id=id)
@@ -115,13 +115,14 @@ def hod_empty_form(request):
         if form.is_valid():
             form.save()
             return redirect('hod_table101')
-        else:
-           
-            return render(request, 'frontend_app1/hod_form.html', {"form": form})
-
     else:
-        form = hod_form()
-        return render(request, 'frontend_app1/hod_form.html', {"form": form})
+     form = hod_form()
+     content = {
+        "form":form
+     }
+    return render(request, 'frontend_app1/hod_form.html', content)
+
+    
 
 
 def hod_update_form(request,id):
@@ -136,7 +137,7 @@ def hod_update_form(request,id):
      content={
          "form":form
      }
-     return render(request,'frontend_app1/hod_n_form.html',content)
+    return render(request,'frontend_app1/hod_n_form.html',content)
     
 def hod_delete(request,id):
    data=hod_model.objects.get(id=id)
@@ -165,7 +166,7 @@ def professor_empty_form(request):
      content={
          "form":form
      }
-     return render(request,'frontend_app1/professor_form.html',content)
+    return render(request,'frontend_app1/professor_form.html',content)
 def professor_update_form(request,id):
     data=professor_model.objects.get(id=id)
     if request.method=="POST":
@@ -178,7 +179,7 @@ def professor_update_form(request,id):
      content={
          "form":form
      }
-     return render(request,'frontend_app1/professor_n_form.html',content)
+    return render(request,'frontend_app1/professor_n_form.html',content)
     
 def professor_delete(request,id):
    data=professor_model.objects.get(id=id)
@@ -207,7 +208,7 @@ def student_empty_form(request):
      content={
          "form":form
      }
-     return render(request,'frontend_app1/student_form.html',content)
+    return render(request,'frontend_app1/student_form.html',content)
 def student_update_form(request,id):
     data=student_model.objects.get(id=id)
     if request.method=="POST":
@@ -220,7 +221,7 @@ def student_update_form(request,id):
      content={
          "form":form
      }
-     return render(request,'frontend_app1/student_n_form.html',content)
+    return render(request,'frontend_app1/student_n_form.html',content)
     
 def student_delete(request,id):
    data=student_model.objects.get(id=id)
