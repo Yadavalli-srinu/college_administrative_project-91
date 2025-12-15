@@ -76,7 +76,7 @@
         <div class="col-md-3 d-flex">
             <div class="card p-3 border-0 shadow-lg rounded-3 w-100 card-box">
                 <h5 class="fw-bold">DEPARTMENTS</h5>
-                <p>5 Departments are There</p>
+                <p>{{dept_total}} Departments are There</p>
                 <a href="{% url 'dept_table101' %}" class="btn btn-primary">Go To Departments</a>
             </div>
         </div>
@@ -85,7 +85,7 @@
         <div class="col-md-3 d-flex">
             <div class="card p-3 border-0 shadow-lg rounded-3 w-100 card-box">
                 <h5 class="fw-bold">HEAD OF THE DEPARTMENTS</h5>
-                <p>5 Head Of The Departments are There</p>
+                <p>{{hod_total}} Head Of The Departments are There</p>
                 <a href="{% url 'hod_table101' %}" class="btn btn-primary">Go To HODs</a>
             </div>
         </div>
@@ -94,7 +94,7 @@
         <div class="col-md-3 d-flex">
             <div class="card p-3 border-0 shadow-lg rounded-3 w-100 card-box">
                 <h5 class="fw-bold">PROFESSORS</h5>
-                <p>27 Professors are There</p>
+                <p>{{professor_total}}Professors are There</p>
                 <a href="{% url 'professor_table101' %}" class="btn btn-primary">Go To Professors</a>
             </div>
         </div>
@@ -103,7 +103,7 @@
         <div class="col-md-3 d-flex">
             <div class="card p-3 border-0 shadow-lg rounded-3 w-100 card-box">
                 <h5 class="fw-bold">STUDENTS</h5>
-                <p>1000 Students are There</p>
+                <p>{{students_total}} Students are There</p>
                 <a href="{% url 'student_table101' %}" class="btn btn-primary">Go To Students</a>
             </div>
         </div>

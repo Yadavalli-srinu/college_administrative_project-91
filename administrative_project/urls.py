@@ -18,13 +18,15 @@ from django.contrib import admin
 from django.urls import path
 from app1.views import (register_form,login1_form,home,department_table,department_empty_form,department_update_form,department_delete,
                       hod_table,hod_empty_form,hod_update_form,hod_delete,professor_table,professor_empty_form,professor_update_form,professor_delete,
-                      student_table,student_empty_form,student_update_form,student_delete)
+                      student_table,student_empty_form,student_update_form,student_delete,verify_user)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",register_form,name="reg101"),
     path("log101/",login1_form,name="log101"),
     path("home101/",home,name='home101'),
+    path("verify/<str:action>/<str:model_name>/<int:id>/",verify_user,name="verify_user"),
+
     path("dept_table101/",department_table,name='dept_table101'),
     path("dept_form101/",department_empty_form,name='dept_form101'),
     path("dept_form101/<int:id>/",department_update_form,name='dept_form102'),

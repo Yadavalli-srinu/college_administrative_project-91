@@ -44,7 +44,18 @@ def login1_form(request):
     return render(request,"frontend_app1/login.html",{"message": message})
 
 def home(request):
-   return render(request,'frontend_app1/home.html')
+   dept_total=department_model.objects.count()
+   hod_total=hod_model.objects.count()
+   professor_total = professor_model.objects.count()
+   students_total = student_model.objects.count()
+   content = {
+      "dept_total":dept_total,
+      "hod_total":hod_total,
+      "professor_total":professor_total,
+      "students_total":students_total
+   }
+
+   return render(request,'frontend_app1/home.html',content)
 
 #Department
 def department_table(request):
@@ -217,3 +228,47 @@ def student_delete(request,id):
    return redirect('student_table101')
 
 
+
+def verify_user(request, action, model_name, id):
+    message = ""
+
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+
+            # -------- DEPARTMENT --------
+            if model_name == "department":
+                if action == "update":
+                    return redirect("dept_form102", id=id)
+                if action == "delete":
+                    return redirect("dept_delete101", id=id)
+
+            # -------- HOD --------
+            if model_name == "hod":
+                if action == "update":
+                    return redirect("hod_form102", id=id)
+                if action == "delete":
+                    return redirect("hod_delete101", id=id)
+
+            # -------- PROFESSOR --------
+            if model_name == "professor":
+                if action == "update":
+                    return redirect("professor_form102", id=id)
+                if action == "delete":
+                    return redirect("professor_delete101", id=id)
+
+            # -------- STUDENT --------
+            if model_name == "student":
+                if action == "update":
+                    return redirect("student_form102", id=id)
+                if action == "delete":
+                    return redirect("student_delete101", id=id)
+
+        else:
+            message = "Invalid Username or Password"
+
+    return render(request, "frontend_app1/verify.html", {"message": message})
