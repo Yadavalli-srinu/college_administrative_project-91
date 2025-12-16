@@ -100,11 +100,11 @@
                         <td class="py-1">{{ i.Code }}</td>
 
                         <td class="py-1">
-                            <a href="{% url 'verify_user' 'update' 'department' i.id %}" class="btn btn-warning btn-sm py-0 px-2">Edit</a>
+                            <a href="{% url 'verify_user' 'update' i.id %}" class="btn btn-warning btn-sm py-0 px-2">Edit</a>
                         </td>
 
                         <td class="py-1">
-                            <a href="{% url 'verify_user' 'delete' 'department' i.id %}" class="btn btn-danger btn-sm py-0 px-2">Del</a>
+                            <a href="{% url 'verify_user' 'delete' i.id %}" class="btn btn-danger btn-sm py-0 px-2">Del</a>
                         </td>
                     </tr>
                     {% endfor %}

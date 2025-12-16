@@ -25,7 +25,7 @@ urlpatterns = [
     path("",register_form,name="reg101"),
     path("log101/",login1_form,name="log101"),
     path("home101/",home,name='home101'),
-    path("verify/<str:action>/<str:model_name>/<int:id>/",verify_user,name="verify_user"),
+    path("verify/<str:action>/<int:id>/",verify_user,name="verify_user"),
 
     path("dept_table101/",department_table,name='dept_table101'),
     path("dept_form101/",department_empty_form,name='dept_form101'),
