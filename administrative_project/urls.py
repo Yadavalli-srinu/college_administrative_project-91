@@ -22,8 +22,9 @@ from app1.views import (register_form,login1_form,home,department_table,departme
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",register_form,name="reg101"),
-    path("log101/",login1_form,name="log101"),
+    
+    path("",login1_form,name="log101"),
+    path("reg101/",register_form,name="reg101"),
     path("home101/",home,name='home101'),
     path("verify/<str:action>/<int:id>/",verify_user,name="verify_user"),
 
