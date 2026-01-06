@@ -84,7 +84,13 @@
             font-weight: bold;
             color: aliceblue;
         }
-    
+     h3{
+            color: green;
+            size: 3px;
+            font-family: sans-serif;
+            font-weight: 600;
+        }
+   
    
     </style>
 </head>
@@ -121,9 +127,9 @@
             </td>
         </tr>
      </table>
-     <p>Already registered? Please login.<a href="{% url 'log101' %}">Login</a></p>
+     <p>Already registered? Please login.<a href="{% url 'log101' %}" style="color: green;">Login</a></p>
     </form>
-    <p>{{message}}</p>
+    <h3>{{message}}</h3>
 </body>
 </html>
 
